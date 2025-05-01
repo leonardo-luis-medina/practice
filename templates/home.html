@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Welcome to My Portfolio</h1>
+  <a href="/profile">Profile</a> | <a href="/about">About</a>
+
+  <hr>
+
+  <h2>Leave Me a Message</h2>
+  <form method="POST" action="/">
+    <input type="text" name="name" placeholder="Your name" required><br><br>
+    <textarea name="message" placeholder="Your message" required></textarea><br><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <hr>
+
+  <h2>Messages</h2>
+  {% for msg in messages %}
+    <p><strong>{{ msg[1] }}</strong>: {{ msg[2] }}</p>
+  {% endfor %}
+</body>
+</html>
